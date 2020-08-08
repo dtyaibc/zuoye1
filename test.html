@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>画布中绘制多张图片</title>
+    <style>
+        body {
+            text-align: center
+        }
+
+        canvas {
+            border: 1px solid red
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 【提示1】 设置canvas画布的id属性为'main', 画布宽高可以自行改变 -->
+    <canvas id="main" width="600" height="600"></canvas>
+    <script>
+        // 【提示2】获取画布，并存储到变量canvas中。 
+        //  使用document.getElementById('属性值')获取画布，属性值为'main'
+        var canvas = document.getElementById('main')
+        // 【提示3】创建画笔，并存储到变量ctx中。
+        // 使用画布对象canvas.getContext('2d')创建画笔
+        var ctx = canvas.getContext('2d')
+
+        var heartImg = new Image()
+        // 【提示4】 设置图片对象heartImg，路径为'images/给你心心.png'
+        heartImg.src = 'images/给你心心.png'
+
+        var paintImg = new Image()
+        // 【提示5】 设置图片对象paintImg，路径为'images/小猿画画.png'
+        paintImg.src = 'images/小猿画画.png'
+
+        var scareImg = new Image()
+        // 【提示6】 设置图片对象scareImg，路径为'images/惊吓.png'
+        scareImg.src = 'images/惊吓.png'
+
+        window.onload = function() {
+            // 【提示7】 使用画笔对象的drawImage()绘制三张图片
+            // 参数一：图片对象
+            // 参数二：X坐标
+            // 参数三：Y坐标
+            // 参数四：宽度
+            // 参数五：高度
+            // 备注：注意图片位置和宽高，不要超出画布范围哦
+
+            // '给你心心'图片：heartImg、坐标(0, 0)
+            ctx.drawImage(heartImg,0,0)
+
+            // '小猿画画'图片：paintImg、坐标(100, 100)
+            ctx.drawImage(paintImg,100,100)
+            
+            // '惊吓'图片：scareImg、坐标(200， 200)、宽为300、高为300
+            ctx.drawImage(scareImg, 200,200, 300, 300)
+        }
+    </script>
+</body>
+
+</html>
